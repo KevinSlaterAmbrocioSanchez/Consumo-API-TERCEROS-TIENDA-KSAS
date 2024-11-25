@@ -61,39 +61,57 @@ Se incluye una columna para acciones (Detalles, Editar, Eliminar) que permite in
 3. Detalles del Producto
 Al hacer clic en el botón "Detalles", se ejecuta un método que almacena el producto seleccionado en una variable local y muestra su información en un panel o modal.
 Se utiliza una directiva condicional *ngIf para mostrar u ocultar el panel según corresponda.
+
 4. Editar Producto
 El botón "Editar" abre un formulario precargado con los datos del producto seleccionado.
 Cuando el usuario realiza modificaciones, los datos se envían a la API mediante un método HTTP PUT.
-**Código Clave:**
+   **Código Clave:**
    ```typescript
    editProduct(product: any): void {
     this.http.put(`https://dummyjson.com/products/${product.id}`, product)
         .subscribe(() => {
             alert('Producto editado correctamente.');
         });
-}
+   }
 
 5. Eliminar Producto
 El botón "Eliminar" utiliza una solicitud HTTP DELETE para eliminar el producto seleccionado en el servidor. Luego, la tabla se actualiza eliminando la fila correspondiente.
-Código Clave:
- **Código Clave:**
+   **Código Clave:**
    ```typescript
-deleteProduct(id: number): void {
-    this.http.delete(`https://dummyjson.com/products/${id}`)
+     deleteProduct(id: number): void {
+     this.http.delete(`https://dummyjson.com/products/${id}`)
         .subscribe(() => {
             this.filteredProducts = this.filteredProducts.filter(product => product.id !== id);
         });
-}
-
+   }
+ 
 6. Buscador
 Implementamos un campo de entrada HTML vinculado con ngModel para filtrar productos dinámicamente en tiempo real. La búsqueda se realiza sobre el título del producto.
- **Código Clave:**
+   **Código Clave:**
    ```typescript
-searchProducts(): void {
-    this.filteredProducts = this.products.filter(product =>
-        product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
-}
+      searchProducts(): void {
+          this.filteredProducts = this.products.filter(product =>
+              product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+          );
+      }
+7. Barra de Usuario
+La barra de usuario se implementó para mostrar la foto, el nombre y la opción de cerrar sesión.
+
+   1.- Foto y Nombre del Usuario
+      Se obtiene la información del usuario autenticado desde un servicio o directamente de la sesión activa.
+      La imagen y el nombre se enlazan dinámicamente utilizando interpolación Angular.
+
+   ![image](https://github.com/user-attachments/assets/69b50e5e-ad4c-475e-a13e-9e1caaf93097)
+
+   Cerrar Sesión
+   2.- Incluimos un botón que llama a un método para limpiar las credenciales de usuario (como el token de sesión) y redirigir al           inicio de sesión.
+      **Código Clave:**
+      ```typescript
+      logout(): void {
+    // Lógica para cerrar sesión
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+    }
 
 --------------------------------------------------------------------------------
 ### 4. *Enrutamiento*
