@@ -115,20 +115,24 @@ La barra de usuario se implementó para mostrar la foto, el nombre y la opción 
 
 --------------------------------------------------------------------------------
 ### 4. *Enrutamiento*
+
 El archivo app.routes.ts define las rutas principales de la aplicación, conectando cada ruta con su componente respectivo. Ejemplo:
-typescript
-{ path: 'login', component: LoginComponent },
-{ path: 'dashboard', component: DashboardComponent },
-`
+      
+    ```typescript
+    { path: 'login', component: LoginComponent },
+    { path: 'dashboard', component: DashboardComponent },
+
 -------------------------------------------------------------------------
 
 ### 5. Estilos
 El archivo principal de estilos styles.css, y el tema personalizado en custom-theme.scsscontrolan el diseño visual de la aplicación.
 
 ##Funcionalidades del Proyecto
-####Acceso
+##Acceso
 - Página inicial que permite autenticar a los usuarios.
 - Verificación de credenciales.
+![image](https://github.com/user-attachments/assets/926accb0-cd7f-4168-8cf4-bf3493002cd9)
+
 
 ####Panel de control (Dashboard)
 - Permite acceso rápido a las principales funcionalidades.
@@ -142,11 +146,6 @@ El archivo principal de estilos styles.css, y el tema personalizado en custom-th
 - Visualización y manejo de grandes volúmenes de datos de la API implementada.
 ![image](https://github.com/user-attachments/assets/91104dee-949e-4d38-9d0b-b8c3ef9bd90c)
 
-
-
-####Navegación intuitiva
-- Menú : Acceso rápido a funciones principales.
-- Barra lateral : Navegación estructurada por secciones.
 
 ####Requisitos
 - *Node.js* : Para gestionar dependencias y ejecutar el servidor.
