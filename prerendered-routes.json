@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/dashboard",
+    "/menu",
+    "/perfil",
+    "/sidebar",
+    "/tablas"
+  ]
+}
